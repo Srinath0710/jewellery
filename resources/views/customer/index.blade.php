@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <a href="{{ route('customer.create') }}">Add New Customer</a>
+<a href="{{ route('customer.create') }}">Add New Customer</a>
 
     <h2>Customer List</h2>
     @foreach($customers as $customer)
@@ -14,6 +14,7 @@
                 @method('DELETE')
                 <button type="submit">Delete</button>
             </form>
-        </div>
+        </div> 
     @endforeach
 @endsection
+ 

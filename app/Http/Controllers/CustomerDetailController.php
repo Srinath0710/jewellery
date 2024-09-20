@@ -12,7 +12,7 @@ class CustomerDetailController extends Controller
         return view('customer.index', compact('customers'));
     }
 
-    public function create()
+    public function create() 
     {
         return view('customer.create');
     }

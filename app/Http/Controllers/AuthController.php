@@ -20,10 +20,10 @@ class AuthController extends Controller
         // if (Auth::attempt($credentials, $remember)) {
         //     return redirect()->intended('dashboard');  
         // }
-
-        return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ])->withInput($request->except('password'));
+return("hii");
+        // return back()->withErrors([
+        //     'username' => 'The provided credentials do not match our records.',
+        // ])->withInput($request->except('password'));
     }
 
     public function logout()
