@@ -12,7 +12,6 @@
         <form action="{{ route('login') }}" method="POST">
             @csrf
 
-            <!-- Email Field -->
             <div class="form-group">
                 <label for="username">username</label>
                 <input type="username" class="form-control" id="username" name="username" value="{{ old('username') }}" required autofocus>
@@ -21,7 +20,6 @@
                 @enderror
             </div>
 
-            <!-- Password Field -->
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
@@ -30,13 +28,11 @@
                 @enderror
             </div>
 
-            <!-- Remember Me Checkbox -->
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
                 <label class="form-check-label" for="remember">Remember Me</label>
             </div>
 
-            <!-- Login Button -->
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>

@@ -14,21 +14,35 @@ class CustomerDetailController extends Controller
 
     public function create() 
     {
+        
         return view('customer.create');
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        // Validate the form data
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'contact_number' => 'nullable|string|max:15',
+            'address' => 'nullable|string|max:255',
+            'contact_number' => 'required|numeric',
             'amount' => 'nullable|numeric',
+            'date_of_purchase' => 'required|date',
+            'renewal_date' => 'nullable|date',
+            'loan_number' => 'nullable|string|max:255',
+            'interest_percentage' => 'nullable|numeric',
+            'gold_weight' => 'nullable|numeric',
+            'silver_weight' => 'nullable|numeric',
+            'number_of_gold' => 'nullable|numeric',
+            'number_of_silver' => 'nullable|numeric',
+            'gold' => 'nullable|string|max:255',
         ]);
-
-        CustomerDetail::create($request->all());
+    
+        // Create and save a new customer
+        $customer = CustomerDetail::create($validated);
+    
         return redirect()->route('customer.index')->with('success', 'Customer created successfully.');
     }
-
+    
     public function show($id)
     {
         $customer = CustomerDetail::find($id);
@@ -45,9 +59,18 @@ class CustomerDetailController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'contact_number' => 'nullable|string|max:15',
+            'address' => 'nullable|string|max:255',
+            'contact_number' => 'required|numeric',
             'amount' => 'nullable|numeric',
-            // Add other validations as needed
+            'date_of_purchase' => 'required|date',
+            'renewal_date' => 'nullable|date',
+            'loan_number' => 'nullable|string|max:255',
+            'interest_percentage' => 'nullable|numeric',
+            'gold_weight' => 'nullable|numeric',
+            'silver_weight' => 'nullable|numeric',
+            'number_of_gold' => 'nullable|numeric',
+            'number_of_silver' => 'nullable|numeric',
+            'gold' => 'nullable|string|max:255',
         ]);
 
         $customer = CustomerDetail::find($id);
@@ -61,4 +84,5 @@ class CustomerDetailController extends Controller
         $customer->delete();
         return redirect()->route('customer.index')->with('success', 'Customer deleted successfully.');
     }
+    
 }

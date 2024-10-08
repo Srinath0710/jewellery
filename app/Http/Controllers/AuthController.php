@@ -17,13 +17,12 @@ class AuthController extends Controller
         $credentials = $request->only('username', 'password');
         $remember = $request->has('remember');
 
-        // if (Auth::attempt($credentials, $remember)) {
-        //     return redirect()->intended('dashboard');  
-        // }
-return("hii");
-        // return back()->withErrors([
-        //     'username' => 'The provided credentials do not match our records.',
-        // ])->withInput($request->except('password'));
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->intended('customer.index');  
+        }
+        return back()->withErrors([
+            'username' => 'The provided credentials do not match our records.',
+        ])->withInput($request->except('password'));
     }
 
     public function logout()
