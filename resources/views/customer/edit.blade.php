@@ -104,5 +104,4 @@
     </form>
 </div>
 
-<script src="{{ asset('js/details.js') }}"></script>
 @endsection

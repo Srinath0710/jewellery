@@ -96,8 +96,8 @@
 
      .details-container {
         background: white;
+    }
 
-     }
     .table {
         width: 100%;
         margin-bottom: 1rem;
@@ -130,7 +130,4 @@
     }
 </style>
 
-    
-
-<script src="{{ asset('js/details.js') }}"></script>
 @endsection

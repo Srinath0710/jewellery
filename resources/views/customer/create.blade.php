@@ -24,7 +24,7 @@
 </div>
 
 <div class="details-container">
-    <h2>Additional Information</h2>
+    <h2>Customer Information</h2>
     @if (count($errors) > 0)
     <div class="alert alert-danger">
         {{-- <strong>Whoops!</strong> There were some problems with your input.<br><br> --}}
@@ -101,7 +101,4 @@
         <button type="submit">Submit</button>
     </form>
 </div>
-
-<script src="{{ asset('js/details.js') }}"></script>
-
 @endsection
