@@ -6,12 +6,20 @@ use Illuminate\Http\Request;
 
 class CustomerDetailController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $customers = CustomerDetail::all();
+        // Get the search query if present
+        $search = $request->input('search');
+
+        // Retrieve customers with pagination, filtering by search if provided
+        $customers = CustomerDetail::when($search, function ($query) use ($search) {
+            return $query->where('name', 'like', "%{$search}%")
+                         ->orWhere('address', 'like', "%{$search}%")
+                         ->orWhere('loan_number', 'like', "%{$search}%");
+        })->paginate(10); // Show 10 customers per page
+
         return view('customer.index', compact('customers'));
     }
-
     public function create() 
     {
         

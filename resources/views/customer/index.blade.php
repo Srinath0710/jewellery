@@ -67,7 +67,7 @@
                                     <td>{{ $customer->amount }}</td>
                                     <td>{{ $customer->loan_number }}</td>
                                     <td>
-                                        <a href="{{ route('customer.edit', ['id' => $customer->id]) }}">Edit</a>
+                                        <a href="{{ route('customer.edit', ['id' => $customer->id]) }}" class="btn btn-success">Edit</a>
                                         
                                         <form action="{{ route('customer.destroy', ['id' => $customer->id]) }}" method="POST" style="display:inline-block;">
                                             @csrf

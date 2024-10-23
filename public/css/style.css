@@ -10,7 +10,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color:rgb(22, 21, 21);
+        background-color:rgb(124, 5, 5);
         padding: 10px 20px;
         color: white;
         position: fixed;
@@ -28,6 +28,7 @@
 
     .menu-bar ul li {
         margin-right: 30px;
+        margin-top: 17px;
     }
 
     .menu-bar ul li a {
