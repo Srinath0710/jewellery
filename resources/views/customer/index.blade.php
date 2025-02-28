@@ -13,20 +13,14 @@
         <li class="{{ request()->routeIs('customer.index') ? 'active' : '' }}">
             <a href="{{ route('customer.index') }}">Home</a>
         </li>
-        <li class="{{ request()->is('about') ? 'active' : '' }}">
-            <a href="#about">About</a>
-        </li>
-        <li class="{{ request()->is('services') ? 'active' : '' }}">
-            <a href="#services">Services</a>
-        </li>
         <li class="{{ request()->routeIs('customer.create') ? 'active' : '' }}">
             <a href="{{ route('customer.create') }}">Add Customer</a>
         </li>
     </ul>
     <div class="search-container">
-        {{-- <form action="{{ route('customer.index') }}" method="GET" class="form-inline"> --}}
-            <input type="text" name="search" class="form-control" value="{{ request()->input('search') }}" placeholder="Search Categories...">
-            <button type="submit">Search</button>
+        <form action="{{ route('customer.index') }}" method="GET" class="form-inline">
+            <input type="text" name="search" class="form-control" value="{{ request()->input('search') }}" placeholder="Search Customer...">
+            <button type="submit"class="btn search-button" style="margin-left: 69%;margin-top: -11%;">Search</button>
         </form>
     </div>
     <form action="{{ route('logout') }}" method="POST" style="display: inline;margin-right: 38px;">
@@ -89,10 +83,7 @@
 </section>
 
 <style>
-    ul li.active a {
-    color: lime;
-    font-weight: bold;
-}
+  
 
      .details-container {
         background: white;

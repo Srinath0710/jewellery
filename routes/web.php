@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerDetailController;
-use App\Http\Controllers\SearchController;
 
 
 
@@ -17,7 +16,6 @@ Route::group(['prefix' => 'customer'], function () {
     Route::delete('/destroy/{id}', [CustomerDetailController::class, 'destroy'])->name('customer.destroy');  
 });
 
-Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('', [AuthController::class, 'showLoginForm'])->name('login');
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');

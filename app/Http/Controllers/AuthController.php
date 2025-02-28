@@ -24,7 +24,14 @@ class AuthController extends Controller
             'username' => 'The provided credentials do not match our records.',
         ])->withInput($request->except('password'));
     }
-
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+    }
+    
     public function logout()
     {
         Auth::logout();
